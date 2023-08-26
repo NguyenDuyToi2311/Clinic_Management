@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row mt-5 mb-5">
+    <div class="col-md-4">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <div class="card-doctor">
+            <div class="header" style="width:100%">
+              <img src="{{PhotoFilePath}}" alt="">
+              <div class="meta">
+                <a href="#"><span class="mai-call"></span></a>
+                <a href="#"><span class="mai-logo-whatsapp"></span></a>
+              </div>
+            </div>
+
+          </div>
+        </li>
+        <li class="list-group-item">
+          Tên Bệnh Nhân: {{benhnhan.TenBN}}<br>
+          Giới Tính: {{benhnhan.GioiTinh}}<br>
+          Ngày Sinh: {{benhnhan.NgaySinh|date}}<br>
+          Số Điện Thoại: {{benhnhan.SDT}}<br>
+          Địa Chỉ: {{benhnhan.DiaChi}}</li>
+        <li class="list-group-item">
+          <a [routerLink]="['/Benhnhan']">Chờ Duyệt</a>
+        </li>
+        <li class="list-group-item">
+          <a [routerLink]="['/Benhnhan/chokham']">Chờ Khám</a>
+        </li>
+        <li class="list-group-item">
+          <a [routerLink]="['/Benhnhan/dakham']">Đã Khám</a>
+        </li>
+        <li class="list-group-item">
+          <a [routerLink]="['/Benhnhan/list-phieu-kham']">Phiếu Khám Bệnh</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col md-8">
+      <div class="row" *ngFor="let item of choduyet" style="border: 1px rgb(17, 173, 179); border-radius: 3px;">
+        <div class="col-md-2">
+          <img width="100px" height="100px" src="https://localhost:44352/Photos/{{item.BacSi.HinhAnh}}" />
+        </div>
+        <div class="col-md-6">
+          <h3>Tên Bác Sĩ: {{item.BacSi.TenBS}}</h3>
+          <p>Chuyên Khoa: {{item.BacSi.ChuyenKhoa.TenCK}}</p>
+          <p>Điện thoại:{{item.BacSi.SDT}}</p>
+          <p>Ngày Khám:{{item.NgayKham|date:'medium'}}</p>
+          <p>Ghi Chú:{{item.GhiChu}}</p>
+
+        </div>
+        <div class="col-md-4">
+          <a type="button" class="btn btn-primary mt-2" target="_blank" href="{{item.PhongKham}}"
+            style="width: 100%;">Phòng Khám</a>
+          <button class="btn btn-danger mt-2" (click)="Huy(item.MaLK)" style="width: 100%;">Hủy</button>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<h1 class="text-center text-primary">Danh Sách Các Hóa Đơn</h1>
+<div class="container">
+  <div class="col-md-12">
+    <table class="table table-striped" width="100%">
+      <thead>
+          <tr>
+              <th>Mã Hóa Đơn</th>
+              <th>Ngày Lập</th>
+              <th>Tổng Tiền</th>
+              <th></th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let dataItem of ListPK">
+              <td>{{dataItem.HoaDon.MaHD}}</td>
+              <td>{{dataItem.NgayKham|date:"medium"}}</td>
+              <td>{{dataItem.HoaDon.TongTien}}</td>
+              <td class="row">
+                <a type="button" [routerLink]="['/Admin/Hoadon/edit',dataItem.HoaDon.MaHD]"  class="btn btn-primary">Edit</a>
+                <button (click)="deleteClick(dataItem)" class="btn btn-danger ml-1" >Xóa</button>
+              </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+

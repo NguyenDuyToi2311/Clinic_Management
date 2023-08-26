@@ -1,0 +1,78 @@
+<div class="container">
+  <div class="row mt-5 mb-5">
+    <div class="col-md-4">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <div class="card-doctor">
+            <div class="header" style="width:100%">
+              <img src="{{PhotoFilePath}}" alt="">
+              <div class="meta">
+                <a href="#"><span class="mai-call"></span></a>
+                <a href="#"><span class="mai-logo-whatsapp"></span></a>
+              </div>
+            </div>
+
+          </div>
+        </li>
+        <li class="list-group-item">
+          Tên Bệnh Nhân: {{benhnhan.TenBN}}
+          <br>
+          Giới Tính: {{benhnhan.GioiTinh}}
+          <br>
+          Ngày Sinh: {{benhnhan.NgaySinh|date}}
+          <br>
+          Số Điện Thoại: {{benhnhan.SDT}}
+          <br>
+          Địa Chỉ: {{benhnhan.DiaChi}}
+        </li>
+        <li class="list-group-item">
+          <a [routerLink]="['/Benhnhan']">Chờ Duyệt</a>
+        </li>
+        <li class="list-group-item">
+          <a [routerLink]="['/Benhnhan/chokham']">Chờ Khám</a>
+        </li>
+        <li class="list-group-item">
+          <a [routerLink]="['/Benhnhan/dakham']">Đã Khám</a>
+        </li>
+        <li class="list-group-item">
+          <a [routerLink]="['/Benhnhan/list-phieu-kham']">Phiếu Khám Bệnh</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col md-8">
+      <div class="row">
+        <h1 class="text-center">Hồ Sơ Khám Bệnh</h1>
+        <br><br>
+        <div class="container">
+          <div class="col-md-12">
+            <table class="table table-striped" width="100%">
+              <thead>
+                <tr>
+                  <th>Mã Phiếu Khám</th>
+                  <th>Ngày Khám</th>
+                  <th>Triệu Chứng</th>
+                  <th>Chuẩn Đoán</th>
+                  <th>Bác Sĩ</th>
+                  <th>Tổng Tiền</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let dataItem of ListPK">
+                  <td>{{dataItem.MaPK}}</td>
+                  <td>{{dataItem.NgayKham}}</td>
+                  <td>{{dataItem.TrieuChung}}</td>
+                  <td>{{dataItem.ChuanDoan}}</td>
+                  <td>{{dataItem.BacSi.TenBS}}</td>
+                  <td>{{dataItem.HoaDon.TongTien}}</td>
+
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

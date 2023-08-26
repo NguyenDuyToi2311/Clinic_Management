@@ -1,0 +1,35 @@
+<h1 class="text-center text-primary">Danh Sách Hồ Sơ Khám Bệnh</h1>
+<div class="container">
+  <div class="col-md-12">
+    <table class="table table-striped" width="100%">
+      <thead>
+        <tr>
+          <th>Mã Phiếu Khám</th>
+          <th>Ngày Khám</th>
+          <th>Triệu Chứng</th>
+          <th>Chuẩn Đoán</th>
+          <th>Bác Sĩ</th>
+          <th>Bệnh Nhân</th>
+          <th>Tổng Tiền</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let dataItem of ListPK">
+          <td>{{dataItem.MaPK}}</td>
+          <td>{{dataItem.NgayKham|date:"medium"}}</td>
+          <td>{{dataItem.TrieuChung}}</td>
+          <td>{{dataItem.ChuanDoan}}</td>
+          <td>{{dataItem.BacSi.TenBS}}</td>
+          <td>{{dataItem.BenhNhan.TenBN}}</td>
+          <td>{{dataItem.HoaDon.TongTien}}</td>
+          <td>
+            <a type="button" [routerLink]="['/Admin/Phieukhambenh/edit',dataItem.MaPK]" style="width:100% ;"
+              class="btn btn-primary">Edit</a>
+            <button (click)="deleteClick(dataItem)" class="btn btn-danger" style="width:100% ;">Xóa</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

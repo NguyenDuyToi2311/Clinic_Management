@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row mt-5 mb-5">
+    <div class="col-md-4">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <div class="card-doctor">
+            <div class="header" style="width:100%">
+              <img src="{{PhotoFilePath}}" alt="">
+              <div class="meta">
+                <a href="#"><span class="mai-call"></span></a>
+                <a href="#"><span class="mai-logo-whatsapp"></span></a>
+              </div>
+            </div>
+
+          </div>
+        </li>
+        <li class="list-group-item">
+          Tên Bác Sĩ: Dr. {{bacsi.TenBS}}
+          <br>
+          Chuyên Khoa: {{bacsi.ChuyenKhoa.TenCK}}
+          <br>
+          Email: {{bacsi.Email}}
+          <br>
+          Số Điện Thoại: {{bacsi.SDT}}
+        </li>
+      </ul>
+    </div>
+    <div class="col md-8">
+      <div *ngIf="userData.IsLoggedIn" class="container">
+        <h1 class="text-center wow fadeInUp">TẠO LỊCH HẸN</h1>
+
+        <form class="main-form">
+          <div class="row mt-5 ">
+            <label class="col-12 col-sm-4 py-2 wow fadeInLeft">Ngày Khám:</label>
+            <div class="col-12 col-sm-8 py-2">
+              <input type="datetime-local" name="NgayKham" [(ngModel)]="NgayKham" class="form-control">
+            </div>
+            <label class="col-12 col-sm-4 py-2 wow fadeInLeft">Ghi Chú:</label>
+            <div class="col-12 col-sm-8 py-2 wow fadeInUp" data-wow-delay="300ms">
+              <textarea name="GhiChu" [(ngModel)]="GhiChu" id="message" class="form-control" rows="6"
+                placeholder="Enter message.."></textarea>
+            </div>
+          </div>
+          <button type="button" (click)="TaoLichKham()" class="btn btn-primary mt-3 col-sm-12">ĐẶT HẸN KHÁM
+            BỆNH</button>
+        </form>
+      </div>
+      <div *ngIf="!userData.IsLoggedIn" class="container">
+        <h1 class="text-center wow fadeInUp mt-5 text-primary">ĐĂNG NHẬP ĐỂ ĐẶT LỊCH HẸN KHÁM BỆNH</h1>
+      </div>
+    </div>
+
+  </div>
+</div>

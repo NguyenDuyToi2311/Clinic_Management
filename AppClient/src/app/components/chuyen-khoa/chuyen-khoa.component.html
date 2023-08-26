@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-md-9">
+    <h1 style="color: #33CC99;">Quản lý chuyên khoa</h1>
+    <form #f="ngForm">
+      <div class="row">
+        <label class="col-md-3">Chuyên Khoa:</label>
+        <input type="text" name="TenCK" class="col-md-9 form-control" [(ngModel)]="selectedChuyenKhoa.TenCK" required>
+      </div>
+
+      <br>
+      <button type="submit" style="width: 100%;background-color: #33CC99; color: white;" class="btn"
+        (click)="createOrUpdate(f)">Create or Update</button><br><br>
+      <button style="width: 100%;background-color: #33CC99;color: white;" class="btn" (click)="clear()">Clear</button>
+    </form>
+    <br>
+
+    <div>
+      <table class="table table-striped table-bordered">
+        <thead>
+          <th>Mã CK</th>
+          <th>Tên Chuyên Khoa</th>
+          <th>Operations</th>
+        </thead>
+        <tr *ngFor="let ck of chuyenkhoas">
+          <td>{{ck.MaCK}}</td>
+          <td>{{ck.TenCK}}</td>
+
+          <td>
+            <button (click)="selectChuyenKhoa(ck)" style="color: white;background-color: #33CC99;"
+              class="btn">Edit</button>
+            <button id="del" (click)="deleteChuyenKhoa(ck.MaCK)" class="ml-2 btn btn-danger">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+</div>
